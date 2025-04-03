@@ -1,25 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import "./utils/css/main.css"
+import {BrowserRouter, Route, Routes} from "react-router-dom"
+import ProductAction from "./pages/ProdutAction"
+import Header from "./components/Common/Header"
+import Home from "./components/Home"
+import AuthUser from "./pages/AuthUser"
+import Cart from "./components/Cart/Cart"
+import Orders from "./components/Order/Orders"
+import About from "./components/Common/About"
 
-function App() {
+export default function App(){
+  // const api_uri = process.env.RECAT_APP_API_URI
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={
+            <> 
+              <Header component={"Home"} />
+              <Home/> 
+            </>
+            } 
+          />
+          <Route path="/cart" element={
+            <> <Header component={"Cart"} />
+            <Cart/> 
+            </>
+            }
+          />
+          <Route path="/orders" element={
+            <> 
+              <Header component={"Orders"} />
+              <Orders/> 
+            </>
+            }
+          />
+          <Route path="/about" element={
+            <>
+              <Header component={"About"} />
+              <About/> 
+            </>
+          } 
+          />
 
-export default App;
+          <Route path="/auth" element={<AuthUser/>} />
+
+          <Route path="/product" >
+            <Route path={"create"} element={<ProductAction/>} />
+            <Route path={"update/:id"} element={<ProductAction/>} />
+          </Route>
+
+        </Routes>
+      </BrowserRouter>
+    </>
+  )
+}

@@ -1,0 +1,24 @@
+.statusPending {
+    padding: 5px 10px;
+    background-color: rgb(47, 47, 235);
+    color: white;
+    border-radius: 10px;
+}
+.statusRemoved{
+    padding: 5px 10px;
+    background-color: rgb(235, 66, 47);
+    color: white;
+    border-radius: 10px;
+}
+.statusDelivered{
+    padding: 5px 10px;
+    background-color: rgb(28, 103, 18);
+    color: white;
+    border-radius: 10px;
+}
+.statusProcessed{
+    padding: 5px 10px;
+    background-color: rgb(89, 230, 29);
+    color: white;
+    border-radius: 10px;
+}

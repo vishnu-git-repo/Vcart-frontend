@@ -1,0 +1,13 @@
+.rating-box{
+    display: flex;
+    width: fit-content;
+}
+.rating-star{
+    height:15px;
+    cursor: pointer;
+    margin: 2px;
+}
+.filter-green{
+    /* filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%); */
+    filter : red;
+}

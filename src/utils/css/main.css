@@ -1,0 +1,132 @@
+body{
+    /* background: linear-gradient(90deg,#ff5757,#8c52ff); */
+}
+.hr{
+    border-bottom: 2px solid black;
+}
+#header{
+    display: flex;
+    align-items: center;
+    background-color: black;
+    padding: 5px;
+    border-radius: 10px;
+    position: sticky;
+    top:0px;
+    height: 10vh;
+    z-index: 3;
+}
+
+#logo{
+    display: flex;
+    align-items: center;
+}
+#logo-pic{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 50%;
+}
+#logo-pic img{
+    height: 30px;
+}
+#logo-pic img:hover{
+    transform: scale(1.1);
+}
+#logo-text{
+    padding-left: 20px;
+    font-family: cursive;
+}
+#logo-text h1{
+    font-size: 30px;
+    color: rgb(219, 212, 211);
+}
+
+#logo-text-first{
+    color: rgb(255, 0, 0);
+}
+#navbar{
+    display: flex;
+    justify-content: end;
+}
+#navbar .nav{
+    padding-right: 30px;
+}
+#navbar .nav-checked{
+    color:red;
+}
+
+
+#profile{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+#profile-pic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border-radius: 50%;
+}
+#profile img{
+    height: 20px;
+}
+#profile img:hover{
+    transform: scale(1.1);
+}
+#profile-dropdown{
+    display: none;
+    position: absolute;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    top: 50px;
+    right: 0px;
+}
+.profile-dropdown-item{
+    text-decoration: none;
+    color: rgb(59, 58, 58);
+    display: block;
+    padding: 3px 10px;
+}
+.profile-dropdown-item:hover{
+    background-color: rgb(219, 208, 208);
+    color: rgb(0, 0, 0);
+}
+.profile-dropdown-item:active{
+    background-color: rgb(219, 208, 208);
+    color: rgb(88, 148, 222)
+}
+
+main{
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.toast{
+    z-index:5;
+    display:flex;
+    align-items: center;
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    background-color: green;
+}
+.toast p{
+    color: white;
+    flex-shrink: 2;
+}
+.toast img{
+    width: 20px;
+}
+
+@media  screen and (max-width: 600px){
+    
+}
