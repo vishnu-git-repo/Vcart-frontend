@@ -41,12 +41,13 @@ export default function ViewProduct(props) {
         .catch( e=>console.log(e) )
     }
 
+    const imageUri = process.env.REACT_APP_IMAGE_URI;
     return(
         <>
             <div className={style.productCard}>
                 <div>
                     <div className={style.productCardImg}>
-                        <img src={`http://localhost:8000/uploads/${product.img}`|| logo} alt="" />
+                        <img src={imageUri+product.img || logo} alt={product.name} />
                     </div>
                     <div className={style.actions}>
                         <button className="btn btn-muted" onClick={(e)=>handleAddCart(e,product)}> Add Cart</button>

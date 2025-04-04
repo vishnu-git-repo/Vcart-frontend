@@ -45,6 +45,8 @@ export default function Cart() {
         } )
         .catch( e=>console.log(e) )
     }
+
+    const imageUri = process.env.REACT_APP_IMAGE_URI;
     return (
         <>
             <main className="container">
@@ -63,7 +65,7 @@ export default function Cart() {
                             cart.map((product, index) => (
                                 <div key={index} className="product-card col-12 col-md-6 col-lg-3">
                                     <div className="product-card-img">
-                                        <img src={`http://localhost:8000/uploads/${product.img}` || ""} alt={product.name || "Product"} />
+                                        <img src={imageUri+product.img} alt={product.name || "Product"} />
                                     </div>
                                     <div className="product-card-body">
                                         <h6>{product.name || "Product Name"}</h6>

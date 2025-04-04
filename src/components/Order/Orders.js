@@ -22,6 +22,7 @@ export default function Orders() {
         fetchOrders();
     }, []);
 
+    const imageUri = process.env.REACT_APP_IMAGE_URI;
     return (
         <main className="container">
             <div className="row">
@@ -48,7 +49,7 @@ export default function Orders() {
                                     {order.products.map((item, index) => (
                                         <div key={index} className="product-card col-12 col-md-6 col-lg-3">
                                             <div className="product-card-img">
-                                                <img src={`http://localhost:8000/uploads/${item.product.img}` || ""} alt={item.product.name || "Product"} />
+                                                <img src={imageUri+item.product.img} alt={item.product.name || "Product"} />
                                             </div>
                                             <div className="product-card-body">
                                                 <h6>{item.product.name}</h6>

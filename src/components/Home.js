@@ -35,7 +35,7 @@ export default function Home() {
         e.stopPropagation();
         setShowDescription(false);
     } 
- 
+    const imageUri = process.env.REACT_APP_IMAGE_URI;
     return (
         <>
             <Auth />
@@ -57,7 +57,7 @@ export default function Home() {
                                         className="product-card col-12 col-md-6 col-lg-3"
                                     >
                                         <div className="product-card-img">
-                                            <img src={`http://localhost:8000/uploads/${_product.img}` || logo} alt="" />
+                                            <img src={imageUri+_product.img} alt="" />
                                         </div>
                                         <div className="product-card-body">
                                             <h6 className="mb-3">{_product.name || " "}</h6>
