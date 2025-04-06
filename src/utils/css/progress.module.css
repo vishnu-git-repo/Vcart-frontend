@@ -1,0 +1,19 @@
+.progressContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+.progressImg{
+    height: 50px;
+    animation: RotateInfinitely 2s linear infinite;
+}
+@keyframes RotateInfinitely {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

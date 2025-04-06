@@ -1,6 +1,6 @@
 import "./utils/css/main.css"
 import {BrowserRouter, Route, Routes} from "react-router-dom"
-import ProductAction from "./pages/ProdutAction"
+import ProductAction from "./pages/ProductAction"
 import Header from "./components/Common/Header"
 import Home from "./components/Home"
 import AuthUser from "./pages/AuthUser"

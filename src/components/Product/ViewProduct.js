@@ -1,14 +1,14 @@
 import Rating from "../Common/Rating"
-import logo from "../../utils/images/logo.svg"
 import style from "../../utils/css/viewProduct.module.css"
 import Auth from "../Authentication/Auth"
-
-import { useEffect, useState } from "react";
 import axios from "axios";
+// import { useNavigate } from "react-router-dom";
+
 
 export default function ViewProduct(props) { 
 
     const product = props.product;
+    // const navigate = useNavigate();
 
     function handleAddCart(e, product) {
         e.stopPropagation();
@@ -18,7 +18,8 @@ export default function ViewProduct(props) {
         }
         cart.push(product); 
         localStorage.setItem("cart", JSON.stringify(cart)); 
-        alert(`${product.name} added to cart`); 
+        alert("Product added to cart successfully")
+        // navigate("/")
     }
     async function handleBuyNow(e,_product){
         e.stopPropagation();
@@ -41,13 +42,12 @@ export default function ViewProduct(props) {
         .catch( e=>console.log(e) )
     }
 
-    const imageUri = process.env.REACT_APP_IMAGE_URI;
     return(
         <>
             <div className={style.productCard}>
                 <div>
                     <div className={style.productCardImg}>
-                        <img src={imageUri+product.img || logo} alt={product.name} />
+                        <img src={product.img} alt={product.name} />
                     </div>
                     <div className={style.actions}>
                         <button className="btn btn-muted" onClick={(e)=>handleAddCart(e,product)}> Add Cart</button>

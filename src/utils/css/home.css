@@ -46,9 +46,13 @@
     height: 250px;
     width: 250px;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .product-card-img img{
-    height: 250px;
+    max-height: 200px;
+    max-width: 200px;
 }
 .product-card-img img:hover{
     transform: scale(1.1);

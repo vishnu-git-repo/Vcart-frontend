@@ -1,24 +1,26 @@
 import { useEffect, useState } from "react";
 import "../utils/css/main.css";
 import "../utils/css/home.css";
-import logo from "../utils/images/logo.svg";
 import search_icon from "../utils/images/icons/search.svg";
 import close from "../utils/images/icons/close.svg";
 import axios from "axios";
 import Auth from "./Authentication/Auth";
 import Rating from "./Common/Rating";
 import ViewProduct from "./Product/ViewProduct";
+import Progress from "./Common/Progress";
 
 export default function Home() {
     const [products, setProducts] = useState([]);
     const [product, setProduct] = useState(null);
     const [showDescription, setShowDescription] = useState(false);
+    const [progressView, setProgressView] = useState(true);
 
     useEffect(() => {
         let url = process.env.REACT_APP_API_URI + "/products/read";
         axios.get(url)
             .then((res) => {
-                setProducts(res.data);
+                setProducts(res.data.reverse());
+                setProgressView(false);
             })
             .catch((e) => {
                 console.log(e);
@@ -36,17 +38,24 @@ export default function Home() {
         setShowDescription(false);
     } 
     const imageUri = process.env.REACT_APP_IMAGE_URI;
+
     return (
         <>
+            <div style={{ display: progressView ? "block" : "none" }}>
+                <Progress />
+            </div>
             <Auth />
-            <main className={`${showDescription ? "low-opacity" : ""} container`}>
+            <main 
+                className={`${showDescription ? "low-opacity" : ""} container`} 
+                style={{ display: progressView ? "none" : "block" }}
+            >
                 <div className="row">
-                    <div id="search-box" className="col-12">
+                    {/* <div id="search-box" className="col-12">
                         <div className="search-box">
                             <input id="search-box-input" type="text" />
                             <img id="search-box-img" src={search_icon} alt="search" />
                         </div>
-                    </div>
+                    </div> */}
                     <div id="dashboard-products" className="container-fluid col-12 my-4">
                         <div className="row gy-5" id="product-cards p-5">
                             {
@@ -57,16 +66,17 @@ export default function Home() {
                                         className="product-card col-12 col-md-6 col-lg-3"
                                     >
                                         <div className="product-card-img">
-                                            <img src={imageUri+_product.img} alt="" />
+                                            {/* <img src={imageUri+_product.img} alt="" /> */}
+                                            <img src={_product.img} alt="product image" />
                                         </div>
                                         <div className="product-card-body">
                                             <h6 className="mb-3">{_product.name || " "}</h6>
-                                            <p>
+                                            <p> 
                                                 <b>{(_product.fixed_price) === "" ? " " : String.fromCodePoint(8377) + _product.fixed_price}</b>&emsp;
                                                 <del>{(_product.initial_price) === "" ? " " : String.fromCodePoint(8377) + _product.initial_price}</del>&emsp;
-                                                <span className="text-success">{_product.fixed_price / _product.initial_price * 100 + "% off"}</span>
+                                                <span className="text-success">{(_product.fixed_price / _product.initial_price * 100).toFixed(0) + "% off"}</span>
                                             </p>
-                                            <p>{<Rating value={_product.ratings} />}</p>
+                                            {<Rating value={_product.ratings} />}
                                         </div>
                                     </div>
                                 ))
