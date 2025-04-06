@@ -61,7 +61,7 @@ export default function ViewProduct(props) {
                     <p>
                         <b>{(product.fixed_price)===""?" ":String.fromCodePoint(8377)+product.fixed_price}</b>&emsp;
                         <del>{(product.initial_price)===""?" ":String.fromCodePoint(8377)+product.initial_price}</del>&emsp;
-                        <span className="text-success">{product.fixed_price/product.initial_price *100 +"% off"}</span>
+                        <span className="text-success">{(product.fixed_price/product.initial_price *100).toFixed(0) +"% off"}</span>
                     </p>
                     <p><span className="text-muted">{"Seller Info :"}</span>{product.seller ||" "}</p>
                     <p className="my-3">{<Rating value={product.ratings}/>}<span className="text-muted">{" (0)ratings & (0)reviews"}</span></p>
